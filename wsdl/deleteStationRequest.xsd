@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://eren.nl.schemas/deleteStationRequest"
+	targetNamespace="http://eren.nl.schemas/deleteStationRequest"
+	elementFormDefault="qualified">
+
+	<element name="deleteStationRequest">
+	<complexType >
+		<sequence>
+			<element name="naam">
+				<simpleType>
+					<restriction base="string">
+					</restriction>
+				</simpleType>
+			</element>
+			
+			
+		</sequence>
+	</complexType>
+	</element>
+</schema>

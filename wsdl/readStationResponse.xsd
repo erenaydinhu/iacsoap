@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://eren.nl.schemas/readStationResponse"
+	targetNamespace="http://eren.nl.schemas/readStationResponse"
+	elementFormDefault="qualified">
+
+	<element name="readStationResponse">
+	<complexType >
+		<sequence>
+			<element name="naam">
+				<simpleType>
+					<restriction base="string">
+					</restriction>
+				</simpleType>
+			</element>
+			
+			<element name="stad">
+				<simpleType>
+					<restriction base="string">
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="capaciteit">
+				<simpleType>
+					<restriction base="integer">
+						<minInclusive value="1" />
+						<maxInclusive value="99999" />
+					</restriction>
+				</simpleType>
+			</element>
+			
+				<element name="treinStation">
+					<simpleType>
+						<restriction base="boolean">
+						</restriction>
+					</simpleType>
+				</element>
+			<element name="busStation">
+					<simpleType>
+						<restriction base="boolean">
+						</restriction>
+					</simpleType>
+				</element>
+		
+		</sequence>
+	</complexType>
+	</element>
+</schema>

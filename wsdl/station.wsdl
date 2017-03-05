@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:csq="http://eren.nl.schemas/createStationRequest"
+	xmlns:css="http://eren.nl.schemas/createStationResponse" xmlns:usq="http://eren.nl.schemas/updateStationRequest"
+	xmlns:uss="http://eren.nl.schemas/updateStationResponse" xmlns:dsq="http://eren.nl.schemas/deleteStationRequest"
+	xmlns:dss="http://eren.nl.schemas/deleteStationResponse" xmlns:rsq="http://eren.nl.schemas/readStationRequest"
+	xmlns:rss="http://eren.nl.schemas/readStationResponse" xmlns:srv="http://eren.nl/schemas/message"
+	targetNamespace="http://eren.nl/schemas/message">
+	<wsdl:types>
+		<xsd:schema>
+
+			<xsd:import namespace="http://eren.nl.schemas/createStationRequest"
+				schemaLocation="createStationRequest.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://eren.nl.schemas/createStationResponse"
+				schemaLocation="createStationResponse.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://eren.nl.schemas/updateStationRequest"
+				schemaLocation="updateStationRequest.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://eren.nl.schemas/updateStationResponse"
+				schemaLocation="updateStationResponse.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://eren.nl.schemas/readStationResponse"
+				schemaLocation="readStationResponse.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://eren.nl.schemas/deleteStationResponse"
+				schemaLocation="deleteStationResponse.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://eren.nl.schemas/deleteStationRequest"
+				schemaLocation="deleteStationRequest.xsd">
+			</xsd:import>
+		</xsd:schema>
+			<xsd:schema>
+			<xsd:import namespace="http://eren.nl.schemas/readStationRequest"
+				schemaLocation="readStationRequest.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="createStationRequest">
+		<wsdl:part name="createStationRequest" element="csq:createStationRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="createStationResponse">
+		<wsdl:part name="createStationResponse" element="css:createStationResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="readStationRequest">
+		<wsdl:part name="readStationRequest" element="rsq:readStationRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="readStationResponse">
+		<wsdl:part name="readStationResponse" element="rss:readStationResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="deleteStationRequest">
+		<wsdl:part name="deleteStationRequest" element="dsq:deleteStationRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="deleteStationResponse">
+		<wsdl:part name="deleteStationResponse" element="dss:deleteStationResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="updateStationRequest">
+		<wsdl:part name="updateStationRequest" element="usq:updateStationRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="updateStationResponse">
+		<wsdl:part name="updateStationResponse" element="uss:updateStationResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+
+	<wsdl:portType name="ITrainService">
+		<wsdl:operation name="createStation">
+			<wsdl:input message="srv:createStationRequest" />
+			<wsdl:output message="srv:createStationResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="updateStation">
+			<wsdl:input message="srv:updateStationRequest" />
+			<wsdl:output message="srv:updateStationResponse" />
+		</wsdl:operation>
+
+		<wsdl:operation name="deleteStation">
+			<wsdl:input message="srv:deleteStationRequest" />
+			<wsdl:output message="srv:deleteStationResponse" />
+		</wsdl:operation>
+
+		<wsdl:operation name="readStation">
+			<wsdl:input message="srv:readStationRequest" />
+			<wsdl:output message="srv:readStationResponse" />
+		</wsdl:operation>
+
+
+	</wsdl:portType>
+
+	<wsdl:binding name="StationBinding" type="srv:ITrainService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="createStation">
+			<soap:operation soapAction="createStation" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="updateStation">
+			<soap:operation soapAction="updateStation" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="readStation">
+			<soap:operation soapAction="readStation" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="deleteStation">
+			<soap:operation soapAction="deleteStation" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="StationService">
+		<wsdl:port name="StationServicePort" binding="srv:StationBinding">
+			<soap:address location="http://localhost:8080/IACSOAP/StationService" />
+		</wsdl:port>
+
+	</wsdl:service>
+
+</wsdl:definitions>
+
